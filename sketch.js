@@ -1,13 +1,11 @@
 var mouses =[];
 var arts =[];
 var message= "";
+var myFont;
 
-// ArrayList<PVector> mouses = new ArrayList<PVector>();
-// ArrayList<ArrayList<PVector>> arts = new ArrayList<ArrayList<PVector>>();
-// PFont myFont;
-
-// setup function is called only once at the beginning
-
+function preload () {
+  myFont= loadFont('assets/Pacifico-Regular.otf');
+}
 function setup() {
 
 	createCanvas(1000, 700);
@@ -41,7 +39,8 @@ function draw() {
 
   //greffety
   fill('#FF5E00');
-
+  textFont(myFont);
+  textSize(40);
   text(message, 199, 200, 700, 200);
 
   //mouth and teeth experement
@@ -177,6 +176,11 @@ triangle(470, 30, 400, 300, 200, 200);
 
 
 }
+
+function keyTyped()
+{
+    message = message + key;
+}
 function keyPressed()
 {
   if ( key == BACKSPACE) {
@@ -188,13 +192,11 @@ function keyPressed()
 
   // if (key == CODED) {
     if (keyCode == SHIFT) {
-      println("shift key is pressed");
+      // println("shift key is pressed");
       // screenshot
-      save("chalkBoard.png");
+      // save("chalkBoard.png");
 
       return;
     }
   // }
-
-  message += key;
 }
